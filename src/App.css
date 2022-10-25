@@ -1,7 +1,23 @@
 .App {
   /* text-align: center; */
 }
+.home {
+  background: rgba(201, 201, 201, 0.712);
+  padding: 35px;
+  border-radius: 18px;
+}
+.main::before {
+  content: "";
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: -8;
+  background-image: url("https://englishfortomorrow.com/wp-content/uploads/2018/09/Higher-Education-in-Bangladesh-1-1024x512.jpg");
+  background: cover;
+  opacity: 0.9;
 
+  /* background: no-repeat; */
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

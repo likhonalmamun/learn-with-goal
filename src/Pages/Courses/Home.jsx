@@ -1,14 +1,14 @@
 import React from "react";
 import { useEffect } from "react";
+import { useLoaderData } from "react-router-dom";
+import CourseCard from "./CourseCard";
 
 const Home = () => {
-  // useEffect(() => {
-  //   fetch("")
-  //     .then((res) => res.json())
-  //     .then((data) => console.log(data));
-  // }, []);
+  const courses = useLoaderData();
+  const  allSubjects   = JSON.parse(courses)
+  // console.log(courses)
   return (
-    <>
+    <div className="home">
       <div
         className="hero  h-[400px]"
         style={{
@@ -35,7 +35,10 @@ const Home = () => {
           </div>
         </div>
       </div>
-    </>
+      <div className="mt-11 grid grid-cols-3 gap-7">
+          {allSubjects.map(subject=> <CourseCard key={subject.id} subject={subject}></CourseCard>)}
+      </div>
+    </div>
   );
 };
 

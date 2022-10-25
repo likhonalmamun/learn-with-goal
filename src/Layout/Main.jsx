@@ -5,13 +5,13 @@ import Header from "../Commons/Header/Header";
 import SideNav from "../Commons/SideNav/SideNav";
 const Main = () => {
   return (
-    <>
+    <div className="main">
       <Header></Header>
     <div className="w-[80%] mt-10 mx-auto gap-12 grid grid-cols-[.7fr,3fr]">
       <SideNav></SideNav>
       <Outlet></Outlet>
     </div>
-    </>
+    </div>
   );
 };
 
