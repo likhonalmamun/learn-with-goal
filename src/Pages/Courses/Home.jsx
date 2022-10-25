@@ -12,9 +12,10 @@ const Home = () => {
       <div
         className="hero  h-[400px]"
         style={{
-          backgroundImage: `url("https://engineersdiarybd.com/wp-content/uploads/2020/06/IMG_6300.jpg")`,
+          backgroundImage: `url("https://upload.wikimedia.org/wikipedia/commons/1/11/Inner_Campus_of_ACC.jpg")`,
         }}
       >
+        {/* https://engineersdiarybd.com/wp-content/uploads/2020/06/IMG_6300.jpg */}
         <div className="hero-overlay bg-opacity-50"></div>
         <div className="hero-content text-center text-neutral-content">
           <div>

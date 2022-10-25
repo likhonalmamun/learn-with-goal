@@ -18,20 +18,18 @@ const CourseCard = ({ subject }) => {
             <span className="text-white">{subject.totalClass}</span>
           </p>
           <p className="text-lg text-white font-semibold">
-            Total Test :{" "}
-            <span className="text-white">{subject.totalTest}</span>
+            Total Test : <span className="text-white">{subject.totalTest}</span>
           </p>
         </div>
         <p className="text-lg text-white font-semibold">
-          Class Mentor :{" "}
-          <span className="text-white"> {subject.mentor}</span>
+          Class Mentor : <span className="text-white"> {subject.mentor}</span>
         </p>
         <div className="card-actions justify-end">
           <Link
-            className="px-3 py-1 rounded-lg hover:border border border-red-400 hover:bg-transparent hover:text-red-300 text-lg font-semibold bg-red-600"
+            className="px-3 py-1 rounded-lg hover:border border duration-300 border-red-400 hover:bg-transparent hover:text-red-300 text-lg font-semibold bg-red-600"
             to={`/subject/${subject.id}`}
           >
-            View details <FaArrowAltCircleRight className="inline"/>
+            View details <FaArrowAltCircleRight className="inline" />
           </Link>
         </div>
       </div>
