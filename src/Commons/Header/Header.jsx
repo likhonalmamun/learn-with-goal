@@ -13,7 +13,26 @@ const Header = () => {
         </Link>
       </div>
 
-      <div className=""></div>
+      <div className="text-xl font-semibold  text-white">
+        <Link className="mr-4 hover:text-red-600 duration-300" to="/">
+          Courses
+        </Link>
+        <Link className="mr-4 hover:text-red-600 duration-300" to="/blog">
+          Blog
+        </Link>
+        <Link className="mr-4 hover:text-red-600 duration-300" to="/FAQ">
+          FAQ
+        </Link>
+        <Link className="mr-4 hover:text-red-600 duration-300" to="/login">
+          Login
+        </Link>
+        <div className="form-control">
+          <label className="label cursor-pointer">
+            <span className="label-text text-white mx-2">Theme</span>
+            <input type="checkbox" className="toggle toggle-primary" />
+          </label>
+        </div>
+      </div>
     </div>
   );
 };
