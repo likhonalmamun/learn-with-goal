@@ -7,7 +7,7 @@ const Main = () => {
   return (
     <>
       <Header></Header>
-    <div className="w-[90%] mx-auto grid grid-cols-[1fr,3fr]">
+    <div className="w-[80%] mt-10 mx-auto gap-7 grid grid-cols-[.7fr,3fr]">
       <SideNav></SideNav>
       <Outlet></Outlet>
     </div>

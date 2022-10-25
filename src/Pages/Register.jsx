@@ -81,7 +81,7 @@ const Register = () => {
                 Register
               </button>
               <div>
-                <p className="text-center mt-2">Or</p>
+                <p className="text-center divider mt-2">Or</p>
                 <p>Continue With :</p>
                 <p className="text-center mt-3">
                   <FaGoogle className="inline text-3xl mx-7 hover:text-black text-red-600"></FaGoogle>
