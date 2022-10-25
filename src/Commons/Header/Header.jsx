@@ -29,7 +29,7 @@ const Header = () => {
         <div className="form-control">
           <label className="label cursor-pointer">
             <span className="label-text text-white mx-2">Theme</span>
-            <input type="checkbox" className="toggle toggle-primary" />
+            <input type="checkbox" className="toggle bg-red-600" />
           </label>
         </div>
       </div>
