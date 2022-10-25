@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { FaGoogle, FaGithub } from "react-icons/fa";
 const Register = () => {
   return (
     <div className="hero  min-h-screen bg-base-200">
@@ -80,6 +80,14 @@ const Register = () => {
               <button type="submit" className="btn bg-red-600">
                 Register
               </button>
+              <div>
+                <p className="text-center mt-2">Or</p>
+                <p>Continue With :</p>
+                <p className="text-center mt-3">
+                  <FaGoogle className="inline text-3xl mx-7 hover:text-black text-red-600"></FaGoogle>
+                  <FaGithub className="inline text-3xl mx-7 hover:text-black text-red-600"></FaGithub>
+                </p>
+              </div>
               <Link
                 to="/"
                 className="text-center pt-4  text-blue-400 hover:font-semibold hover:text-blue-600"
