@@ -1,7 +1,10 @@
 import React from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../ContextProvider";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
   return (
     <div className="navbar px-10 bg-black">
       <div className="flex-1 items-center">
@@ -23,9 +26,15 @@ const Header = () => {
         <Link className="mr-4 hover:text-red-600 duration-300" to="/FAQ">
           FAQ
         </Link>
-        <Link className="mr-4 hover:text-red-600 duration-300" to="/login">
-          Login
-        </Link>
+        {user?.uid ? (
+         <>
+          <button onClick={logOut}>Log Out</button>
+          <img src={user.photoURL} alt="" />
+         </>
+        ) : ( <Link className="mr-4 hover:text-red-600 duration-300" to="/login">
+        Login
+      </Link>
+        )}
         <div className="form-control">
           <label className="label cursor-pointer">
             <span className="label-text text-white mx-2">Theme</span>

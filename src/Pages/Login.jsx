@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FaGoogle, FaGithub } from "react-icons/fa";
+import { AuthContext } from "../ContextProvider";
+import { useState } from "react";
 const Login = () => {
+  const { logInWithGoogle, logInWithPass, logInWithGitHub } =
+    useContext(AuthContext);
+  const [error, setError] = useState("");
+  const logIn = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    logInWithPass(email, password)
+      .then((res) => {
+        console.log(res.user);
+      })
+      .catch((e) => setError(e.message));
+  };
   return (
     <div className="hero  min-h-screen bg-base-200">
       <div className="hero-content w-[50%] flex-col lg:flex-row">
@@ -13,17 +28,18 @@ const Login = () => {
           </p>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <form className="card-body">
+          <form onSubmit={logIn} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-red-600">Email</span>
               </label>
               <input
+                autoComplete="true"
                 name="email"
                 type="email"
                 placeholder="email"
                 className="input input-bordered"
-                required
+                required={true}
               />
             </div>
             <div className="form-control">
@@ -31,15 +47,14 @@ const Login = () => {
                 <span className="label-text text-red-600">Password</span>
               </label>
               <input
-                required
+                autoComplete="true"
+                required={true}
                 name="password"
                 type="password"
                 placeholder="password"
                 className="input input-bordered"
               />
-              <p className="text-red-500 font-semibold ml-1">
-                This is error message
-              </p>
+              <p className="text-red-500 font-semibold ml-1">{error}</p>
               <p className="text-sm mt-4">
                 New to "Learn With Goal" ?{" "}
                 <Link
@@ -58,8 +73,14 @@ const Login = () => {
                 <p className="text-center divider mt-2">Or</p>
                 <p>Continue With :</p>
                 <p className="text-center mt-3">
-                  <FaGoogle className="inline text-3xl mx-7 hover:text-black text-red-600"></FaGoogle>
-                  <FaGithub className="inline text-3xl mx-7 hover:text-black text-red-600"></FaGithub>
+                  <FaGoogle
+                    onClick={() => logInWithGoogle().then((result) => {})}
+                    className="inline text-3xl mx-7 hover:text-black text-red-600"
+                  ></FaGoogle>
+                  <FaGithub
+                    onClick={() => logInWithGitHub().then((res) => {})}
+                    className="inline text-3xl mx-7 hover:text-black text-red-600"
+                  ></FaGithub>
                 </p>
               </div>
               <Link
