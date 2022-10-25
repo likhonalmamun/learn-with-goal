@@ -8,7 +8,7 @@ const CourseDetails = () => {
       <div
         className="hero  h-[400px]"
         style={{
-          backgroundImage: `url("https://upload.wikimedia.org/wikipedia/commons/1/11/Inner_Campus_of_ACC.jpg")`,
+          backgroundImage: `url("https://live.staticflickr.com/1873/30723091118_44fe5a9b08_b.jpg")`,
         }}
       >
         <div className="hero-overlay bg-opacity-50"></div>
@@ -24,7 +24,10 @@ const CourseDetails = () => {
               important topics of {subject.name} text book . Regular test and
               quize will keep you on practice .
             </p>
-            <Link className="px-5 hover:bg-transparent border duration-500 border-red-500 hover:text-red-500 py-2 mt-5 inline-block text-xl font-semibold bg-red-500 rounded-lg">
+            <Link
+              to={`/checkout/${subject.id}`}
+              className="px-5 hover:bg-transparent border duration-500 border-red-500 hover:text-red-500 py-2 mt-5 inline-block text-xl font-semibold bg-red-500 rounded-lg"
+            >
               Get Premium Access
             </Link>
           </div>
@@ -33,7 +36,7 @@ const CourseDetails = () => {
       <h1 className="text-3xl mt-10 text-black  font-semibold text-center">
         More details
       </h1>
-      <div className="grid gap-6 bg-base-100 rounded-xl grid-cols-[3fr,2fr]">
+      <div className="grid gap-6 mt-10 bg-base-100 rounded-xl grid-cols-[3fr,2fr]">
         <div>
           <img
             className="block h-[380px] rounded-tl-xl rounded-bl-xl w-full"
@@ -41,27 +44,22 @@ const CourseDetails = () => {
             alt=""
           />
         </div>
-        <div className="p-7 w-full">
-          <h2 className="">{subject.name}</h2>
+        <div className="p-7  w-full">
+          <h2 className="text-xl font-semibold">{subject.name}</h2>
           <div>
             {" "}
-            <p>Total Classes: {subject.totalClass}</p>
-            <p>Total Tests : {subject.totalTest}</p>
-            <p>Total Quiz : {subject.totalQuize}</p>
+            <p className="font-bold">Total Classes: {subject.totalClass}</p>
+            <p className="font-bold">Total Tests : {subject.totalTest}</p>
+            <p className="font-bold">Total Quiz : {subject.totalQuize}</p>
           </div>
-          <p>
+          <p className="font-bold">
             {subject.name} Teacher : {subject.mentor}
           </p>
           <p>
-            Course Description : <br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
-            sed delectus, dolores sint dolor ipsa eum quidem necessitatibus, ab
-            eveniet provident sit quaerat pariatur ipsam neque voluptate iusto
-            ratione consequatur!
+            <span className="font-bold"> Course Description : </span>
+            <br />
+            {subject.description}
           </p>
-          <div className=" justify-end">
-            <button className="btn btn-primary">Listen</button>
-          </div>
         </div>
       </div>
     </div>

@@ -19,7 +19,7 @@ export const AuthContext = createContext();
 const auth = getAuth(app);
 const ContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const registerWithPass = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
@@ -43,6 +43,7 @@ const ContextProvider = ({ children }) => {
     const cleanUp = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
+      return () => cleanUp();
     });
   }, []);
   const authContextValue = {

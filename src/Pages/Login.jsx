@@ -1,9 +1,12 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from "../ContextProvider";
 import { useState } from "react";
 const Login = () => {
+  const location = useLocation();
+  const from = location?.state?.from?.pathname;
+  const navigate = useNavigate();
   const { logInWithGoogle, logInWithPass, logInWithGitHub } =
     useContext(AuthContext);
   const [error, setError] = useState("");
@@ -14,6 +17,7 @@ const Login = () => {
     logInWithPass(email, password)
       .then((res) => {
         console.log(res.user);
+        navigate(from);
       })
       .catch((e) => setError(e.message));
   };

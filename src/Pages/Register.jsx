@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../ContextProvider";
+import { updateProfile } from "firebase/auth";
 const Register = () => {
   const { logInWithGoogle, logInWithGitHub, registerWithPass } =
     useContext(AuthContext);
@@ -15,7 +16,7 @@ const Register = () => {
     const photoURL = e.target.photoURL.value;
     registerWithPass(email, password)
       .then((res) => {
-        console.log("user created successfully");
+        updateProfile(res.user, { displayName: name, photoURL: photoURL }).then(()=>{});
       })
       .catch((e) => setError(e.message));
     // console.log(name, email, password, photoURL);

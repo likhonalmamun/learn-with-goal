@@ -5,6 +5,7 @@ import { AuthContext } from "../../ContextProvider";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
+
   return (
     <div className="navbar px-10 bg-black">
       <div className="flex-1 items-center">
@@ -27,18 +28,24 @@ const Header = () => {
           FAQ
         </Link>
         {user?.uid ? (
-         <>
-          <button onClick={logOut}>Log Out</button>
-          <img src={user.photoURL} alt="" />
-         </>
-        ) : ( <Link className="mr-4 hover:text-red-600 duration-300" to="/login">
-        Login
-      </Link>
+          <>
+            <button onClick={logOut}>Log Out</button>
+            <img
+              title={user?.displayName}
+              className="h-14 mx-2 rounded-full"
+              src={user?.photoURL}
+              alt=""
+            />
+          </>
+        ) : (
+          <Link className="mr-4 hover:text-red-600 duration-300" to="/login">
+            Login
+          </Link>
         )}
         <div className="form-control">
           <label className="label cursor-pointer">
-            <span className="label-text text-white mx-2">Theme</span>
             <input type="checkbox" className="toggle bg-red-600" />
+            <span className="label-text text-white mx-2">Theme</span>
           </label>
         </div>
       </div>
