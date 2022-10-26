@@ -4,6 +4,7 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../ContextProvider";
 import { updateProfile } from "firebase/auth";
+import { ThemeContext } from "../ThemeProvider";
 const Register = () => {
   const { logInWithGoogle, logInWithGitHub, registerWithPass } =
     useContext(AuthContext);
@@ -16,14 +17,24 @@ const Register = () => {
     const photoURL = e.target.photoURL.value;
     registerWithPass(email, password)
       .then((res) => {
-        updateProfile(res.user, { displayName: name, photoURL: photoURL }).then(()=>{});
+        updateProfile(res.user, { displayName: name, photoURL: photoURL }).then(
+          () => {}
+        );
       })
       .catch((e) => setError(e.message));
     // console.log(name, email, password, photoURL);
   };
+  const { theme } = useContext(ThemeContext);
   return (
-    <div className="hero  min-h-screen bg-base-200">
-      <div className="hero-content w-[50%] flex-col lg:flex-row">
+    <div
+      style={
+        !theme
+          ? { backgroundColor: "rgba(0, 0, 0, 0.8) ", color: "white" }
+          : undefined
+      }
+      className="hero  min-h-screen bg-base-200"
+    >
+      <div className="hero-content p-0 w-[95%] md:w-[80%] lg:w-[70%] xl:w-[50%] flex-col lg:flex-row">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl text-red-600 font-bold">Register Now</h1>
           <p className="py-6">
@@ -32,38 +43,56 @@ const Register = () => {
             reach your goal .
           </p>
         </div>
-        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <div
+          className={`card flex-shrink-0 w-[90%] sm:w-full max-w-sm ${
+            !theme ? "bg-[rgba(0,0,0,0.6)]" : "bg-base-100"
+          } shadow-2xl bg-base-100`}
+        >
           <form onSubmit={register} className="card-body">
             <div className="form-control">
               <label className="label">
-                <span className="label-text text-red-600">Full Name</span>
+                <span className="label-text font-semibold  text-red-600">
+                  Full Name
+                </span>
               </label>
               <input
                 autoComplete="true"
                 name="name"
                 type="text"
                 placeholder="Full name"
-                className="input input-bordered"
+                className={`input input-bordered ${
+                  !theme
+                    ? " focus:outline focus:outline-offset-2 focus:outline-white"
+                    : ""
+                }`}
                 required={true}
               />
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text text-red-600">Email</span>
+                <span className="label-text font-semibold  text-red-600">
+                  Email
+                </span>
               </label>
               <input
                 autoComplete="true"
                 name="email"
                 type="email"
                 placeholder="email"
-                className="input input-bordered"
+                className={`input input-bordered ${
+                  !theme
+                    ? " focus:outline focus:outline-offset-2 focus:outline-white"
+                    : ""
+                }`}
                 required={true}
               />
             </div>
 
             <div className="form-control">
               <label className="label">
-                <span className="label-text text-red-600">Password</span>
+                <span className="label-text font-semibold  text-red-600">
+                  Password
+                </span>
               </label>
               <input
                 autoComplete="true"
@@ -71,19 +100,29 @@ const Register = () => {
                 name="password"
                 type="password"
                 placeholder="password"
-                className="input input-bordered"
+                className={`input input-bordered ${
+                  !theme
+                    ? " focus:outline focus:outline-offset-2 focus:outline-white"
+                    : ""
+                }`}
               />
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text text-red-600">Photo URL</span>
+                <span className="label-text font-semibold  text-red-600">
+                  Photo URL
+                </span>
               </label>
               <input
                 autoComplete="true"
                 name="photoURL"
                 type="text"
                 placeholder="Photo URL"
-                className="input input-bordered"
+                className={`input input-bordered ${
+                  !theme
+                    ? " focus:outline focus:outline-offset-2 focus:outline-white"
+                    : ""
+                }`}
               />
             </div>
             <p className="text-red-500 font-semibold ml-1">{error}</p>

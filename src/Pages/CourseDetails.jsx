@@ -2,11 +2,17 @@ import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import Pdf from "react-to-pdf";
 import { createRef } from "react";
+import { useContext } from "react";
+import { ThemeContext } from "../ThemeProvider";
 const ref = createRef();
 const CourseDetails = () => {
   const subject = useLoaderData();
+  const { theme } = useContext(ThemeContext);
   return (
-    <div className="home">
+    <div
+      style={!theme ? { backgroundColor: "rgba(0, 0, 0, 0.675)" } : undefined}
+      className="home"
+    >
       <Pdf targetRef={ref} filename="code-example.pdf">
         {({ toPdf }) => (
           <button
@@ -49,7 +55,11 @@ const CourseDetails = () => {
         <h1 className="text-3xl mt-10 text-black  font-semibold text-center">
           More details
         </h1>
-        <div className="grid gap-6 mt-10 bg-base-100 rounded-xl grid-cols-[3fr,2fr]">
+        <div style={
+              !theme
+                ? { backgroundColor: "rgb(0, 0, 0", color: "white" }
+                : undefined
+            } className="grid gap-6 mt-10 bg-base-100 rounded-xl grid-cols-[3fr,2fr]">
           <div>
             <img
               className="block h-[380px] rounded-tl-xl rounded-bl-xl w-full"
@@ -57,7 +67,7 @@ const CourseDetails = () => {
               alt=""
             />
           </div>
-          <div className="p-7  w-full">
+          <div  className="p-7  w-full">
             <h2 className="text-xl font-semibold">{subject.name}</h2>
             <div>
               {" "}

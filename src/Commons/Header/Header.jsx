@@ -2,10 +2,13 @@ import React from "react";
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../ContextProvider";
+import { ThemeContext } from "../../ThemeProvider";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
+  const { theme, setTheme } = useContext(ThemeContext);
 
+  console.log(theme);
   return (
     <div className="navbar px-10 bg-black">
       <div className="flex-1 items-center">
@@ -60,8 +63,14 @@ const Header = () => {
         )}
         <div className="form-control">
           <label className="label cursor-pointer">
-            <input type="checkbox" className="toggle bg-red-600" />
-            <span className="label-text text-white mx-2">Theme</span>
+            <input
+              onClick={() => setTheme(!theme)}
+              type="checkbox"
+              className="toggle bg-red-600"
+            />
+            <span className="label-text text-white mx-2">
+              {theme ? "LIGHT" : "DARK"}
+            </span>
           </label>
         </div>
       </div>

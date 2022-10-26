@@ -1,14 +1,17 @@
 import React from "react";
+import { useContext } from "react";
 
 import { useLoaderData } from "react-router-dom";
+import { ThemeContext } from "../../ThemeProvider";
 import CourseCard from "./CourseCard";
 
 const Home = () => {
   const courses = useLoaderData();
   const allSubjects = JSON.parse(courses);
   // console.log(courses)
+  const {theme} = useContext(ThemeContext)
   return (
-    <div className="home">
+    <div style={!theme ? {backgroundColor : "rgba(0, 0, 0, 0.675)"} :undefined} className="home">
       <div
         className="hero  h-[400px]"
         style={{
