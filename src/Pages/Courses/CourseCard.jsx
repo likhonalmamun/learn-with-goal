@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const CourseCard = ({ subject }) => {
   return (
-    <div className="card w-full shadow-xl image-full">
+    <div className="card  w-full shadow-xl image-full">
       <figure>
         <img className="opacity-100" src={subject.img} alt="Subject" />
       </figure>

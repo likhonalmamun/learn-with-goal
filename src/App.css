@@ -1,6 +1,9 @@
 .App {
   /* text-align: center; */
 }
+.activeLink{
+  color: red;
+}
 .home {
   background: rgba(201, 201, 201, 0.712);
   padding: 35px;

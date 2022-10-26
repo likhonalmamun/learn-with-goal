@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../ContextProvider";
 
 const Header = () => {
@@ -10,37 +10,53 @@ const Header = () => {
     <div className="navbar px-10 bg-black">
       <div className="flex-1 items-center">
         <img className="h-16" src="/assets/logo.jpg" alt="" />
-        <Link className="text-xl text-white ml-3 font-bold" to="/">
+        <NavLink className="text-xl text-white ml-3 font-bold" to="/">
           <span className="text-red-600">L</span>EARN
           <span className="text-red-600">W</span>ITH
           <span className="text-red-600">G</span>OAL
-        </Link>
+        </NavLink>
       </div>
 
       <div className="text-xl font-semibold  text-white">
-        <Link className="mr-4 hover:text-red-600 duration-300" to="/">
+        <NavLink
+          className={`mr-4 hover:text-red-600 duration-300 ${({ isActive }) =>
+            isActive ? "activeLink" : ""}`}
+          to="/"
+        >
           Courses
-        </Link>
-        <Link className="mr-4 hover:text-red-600 duration-300" to="/blog">
+        </NavLink>
+        <NavLink
+          className={`mr-4 hover:text-red-600 duration-300 ${({ isActive }) =>
+            isActive ? "text-red-500" : "text-nothing"}`}
+          to="/blog"
+        >
           Blog
-        </Link>
-        <Link className="mr-4 hover:text-red-600 duration-300" to="/FAQ">
+        </NavLink>
+        <NavLink
+          className={`mr-4 hover:text-red-600 duration-300 ${({ isActive }) =>
+            isActive ? "activeLink" : ""}`}
+          to="/FAQ"
+        >
           FAQ
-        </Link>
+        </NavLink>
         {user?.uid ? (
           <>
             <button onClick={logOut}>Log Out</button>
             <img
-              title={user?.displayName}
+              title={user?.displayName ? user.displayName : "User"}
               className="h-14 mx-2 rounded-full"
-              src={user?.photoURL}
+              src={
+                user?.photoURL
+                  ? user.photoURL
+                  : "https://marketplace.canva.com/EAE6OJ2qP8U/1/0/1600w/canva-gamer-with-glasses-character-twitch-profile-picture-CVfgWIJGgRo.jpg"
+              }
               alt=""
             />
           </>
         ) : (
-          <Link className="mr-4 hover:text-red-600 duration-300" to="/login">
+          <NavLink className="mr-4 hover:text-red-600 duration-300" to="/login">
             Login
-          </Link>
+          </NavLink>
         )}
         <div className="form-control">
           <label className="label cursor-pointer">

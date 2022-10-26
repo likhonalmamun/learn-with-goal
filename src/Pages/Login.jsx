@@ -78,11 +78,11 @@ const Login = () => {
                 <p>Continue With :</p>
                 <p className="text-center mt-3">
                   <FaGoogle
-                    onClick={() => logInWithGoogle().then((result) => {})}
+                    onClick={() => logInWithGoogle().then((result) => {navigate(from);})}
                     className="inline text-3xl mx-7 hover:text-black text-red-600"
                   ></FaGoogle>
                   <FaGithub
-                    onClick={() => logInWithGitHub().then((res) => {})}
+                    onClick={() => logInWithGitHub().then((res) => {navigate(from);})}
                     className="inline text-3xl mx-7 hover:text-black text-red-600"
                   ></FaGithub>
                 </p>

@@ -25,7 +25,14 @@ export const router = createBrowserRouter([
           fetch(`https://assignment-10-server-pi.vercel.app/${params.id}`),
         element: <CourseDetails></CourseDetails>,
       },
-      { path: "/checkout/:id", element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute> },
+      {
+        path: "/checkout/:id",
+        element: (
+          <PrivateRoute>
+            <CheckOut></CheckOut>
+          </PrivateRoute>
+        ),
+      },
     ],
   },
   { path: "/login", element: <Login></Login> },
