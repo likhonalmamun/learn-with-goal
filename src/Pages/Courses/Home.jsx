@@ -1,11 +1,11 @@
 import React from "react";
-import { useEffect } from "react";
+
 import { useLoaderData } from "react-router-dom";
 import CourseCard from "./CourseCard";
 
 const Home = () => {
   const courses = useLoaderData();
-  const  allSubjects   = JSON.parse(courses)
+  const allSubjects = JSON.parse(courses);
   // console.log(courses)
   return (
     <div className="home">
@@ -37,7 +37,9 @@ const Home = () => {
         </div>
       </div>
       <div className="mt-11 grid grid-cols-3 gap-7">
-          {allSubjects.map(subject=> <CourseCard key={subject.id} subject={subject}></CourseCard>)}
+        {allSubjects.map((subject) => (
+          <CourseCard key={subject.id} subject={subject}></CourseCard>
+        ))}
       </div>
     </div>
   );
