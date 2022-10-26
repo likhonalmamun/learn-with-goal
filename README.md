@@ -42,4 +42,4 @@ We have used Firebase as our authentication system and there 3 options of signin
 
 ### Our Live Site Link
 
-Visit Learn With Goal : [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Visit Learn With Goal : [ https://assignment-10-client-6f329.web.app](https://assignment-10-client-6f329.web.app)
