@@ -14,7 +14,7 @@ const SideNav = () => {
   }, []);
   const { theme } = useContext(ThemeContext);
   return (
-    <div>
+    <div className="hidden lg:block">
       <h3>
         <ul
           style={!theme ? { backgroundColor: "black",color : 'white' } : undefined}

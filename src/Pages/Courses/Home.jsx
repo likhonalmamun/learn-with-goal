@@ -9,9 +9,12 @@ const Home = () => {
   const courses = useLoaderData();
   const allSubjects = JSON.parse(courses);
   // console.log(courses)
-  const {theme} = useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext);
   return (
-    <div style={!theme ? {backgroundColor : "rgba(0, 0, 0, 0.675)"} :undefined} className="home">
+    <div
+      style={!theme ? { backgroundColor: "rgba(0, 0, 0, 0.675)" } : undefined}
+      className="home"
+    >
       <div
         className="hero  h-[400px]"
         style={{
@@ -22,12 +25,12 @@ const Home = () => {
         <div className="hero-overlay bg-opacity-50"></div>
         <div className="hero-content text-center text-neutral-content">
           <div>
-            <h1 className="mb-5  text-5xl font-bold">
+            <h1 className="mb-5 text-3xl  md:text-5xl font-bold">
               Welcome to "<span className="text-red-600">L</span>EARN
               <span className="text-red-600">W</span>ITH
               <span className="text-red-600">G</span>OAL" .
             </h1>
-            <p className="mb-5 italic text-2xl">
+            <p className="mb-5 italic text-lg lg:text-2xl">
               If you are a student of SSC-2022 and you have set your goal to get
               admitted to{" "}
               <span className="text-red-500 font-bold">Notre Dame</span>/
@@ -39,7 +42,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="mt-11 grid grid-cols-3 gap-7">
+      <div className="mt-11 grid sm:grid-cols-2 xl:grid-cols-3 gap-7">
         {allSubjects.map((subject) => (
           <CourseCard key={subject.id} subject={subject}></CourseCard>
         ))}

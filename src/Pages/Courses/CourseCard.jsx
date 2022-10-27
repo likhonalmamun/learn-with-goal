@@ -9,19 +9,19 @@ const CourseCard = ({ subject }) => {
         <img className="opacity-100" src={subject.img} alt="Subject" />
       </figure>
       <div className="card-body  opacity-100">
-        <h2 className="card-title text-white  text-2xl">
+        <h2 className="card-title text-white text-lg  md:text-2xl">
           Subject : <span className="text-white">{subject.name}</span>
         </h2>
         <div>
-          <p className="text-lg text-white font-semibold">
+          <p className="md:text-lg text-sm text-white font-semibold">
             Total Classes :{" "}
             <span className="text-white">{subject.totalClass}</span>
           </p>
-          <p className="text-lg text-white font-semibold">
+          <p className="md:text-lg text-sm text-white font-semibold">
             Total Test : <span className="text-white">{subject.totalTest}</span>
           </p>
         </div>
-        <p className="text-lg text-white font-semibold">
+        <p className="md:text-lg text-sm text-white font-semibold">
           Class Mentor : <span className="text-white"> {subject.mentor}</span>
         </p>
         <div className="card-actions justify-end">

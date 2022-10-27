@@ -25,9 +25,13 @@ const Blog = () => {
                 Q1 : What is CORS ?
               </h1>
               <p className="mb-5 text-xs sm:text-sm md:text-md lg:text-lg">
-                Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                assumenda excepturi exercitationem quasi. In deleniti eaque aut
-                repudiandae et a id nisi.
+                CORS stand for cross-origin resource sharing . It is an
+                HTTP-based security mechanism which allows requests from some
+                specific origins (domain , port , scheme etc.) . CORS is used in
+                almost all wellknown browsers and it allows any website to
+                request , access and use some data from particular server which
+                allows cross-origin. It has given more freedom of using APIs as
+                well .
               </p>
             </div>
           </div>
@@ -45,9 +49,14 @@ const Blog = () => {
                 Q2 : Why am I using Firebase & what are the alternatives ?
               </h1>
               <p className="mb-5 text-xs sm:text-sm md:text-md lg:text-lg">
-                Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                assumenda excepturi exercitationem quasi. In deleniti eaque aut
-                repudiandae et a id nisi.
+                Firebase is an application building platform by google . You can
+                make , host , serve application for web , android and IOS all
+                together !! It is light , user friendly ,time saving , secure ,
+                wellknown and trusted as well . By using firebase we can also
+                use any other google services like google drive , sheet etc .
+                And it saves you from writing boring backend codes ! Anyway ,
+                there are many alternatives of firebase . AuthO , MongoDB ,
+                Back4App , Backendless and Kuzzle are reliable among them .
               </p>
             </div>
           </div>
@@ -65,9 +74,14 @@ const Blog = () => {
                 Q3 : How does Private Route Works ?
               </h1>
               <p className="mb-5 text-xs sm:text-sm md:text-md lg:text-lg">
-                Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                assumenda excepturi exercitationem quasi. In deleniti eaque aut
-                repudiandae et a id nisi.
+                React Private route ensures that only logged in users can see
+                and access the contents inside the private route . Usually
+                sensitive components are passed inside Private route component
+                as children . So use at first comes to the Private route
+                component and the component checks that the user is logged in or
+                not . If the user is logged in , it takes the user to the child
+                component , Otherwise it takes the user to login page and
+                replaces the sensitive components path .
               </p>
             </div>
           </div>
@@ -85,9 +99,13 @@ const Blog = () => {
                 Q4 : What is Node? How does Node work ?
               </h1>
               <p className="mb-5 text-xs sm:text-sm md:text-md  lg:text-lg">
-                Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                assumenda excepturi exercitationem quasi. In deleniti eaque aut
-                repudiandae et a id nisi.
+                Node.js is a runtime backend javascript runtime environment .
+                Javascript is a client side scripting language . Node.js uses
+                javascript in backend by converting it to machine language with
+                the help of Chrome V8 engine . <br /> Node.js works with two
+                concepts 1. asynchronous 2. Non-blocking I/O . That means it can
+                handle multiple requests with a single thread without blocking
+                the thread for single task .
               </p>
             </div>
           </div>

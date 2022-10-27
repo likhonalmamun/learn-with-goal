@@ -19,11 +19,11 @@ const CourseDetails = () => {
             className="text-xl bg-red-500 mb-3 hover:bg-red-300 rounded-lg py-2 px-3 text-white"
             onClick={toPdf}
           >
-            Generate Pdf
+            Download Course Details
           </button>
         )}
       </Pdf>
-      <div ref={ref} className=" mb-11">
+      <div className=" mb-11">
         <div
           className="hero  h-[400px]"
           style={{
@@ -55,11 +55,14 @@ const CourseDetails = () => {
         <h1 className="text-3xl mt-10 text-black  font-semibold text-center">
           More details
         </h1>
-        <div style={
-              !theme
-                ? { backgroundColor: "rgb(0, 0, 0", color: "white" }
-                : undefined
-            } className="grid gap-6 mt-10 bg-base-100 rounded-xl grid-cols-[3fr,2fr]">
+        <div
+          style={
+            !theme
+              ? { backgroundColor: "rgb(0, 0, 0", color: "white" }
+              : undefined
+          }
+          className="grid gap-6 mt-10 bg-base-100 rounded-xl grid-cols-[3fr,2fr]"
+        >
           <div>
             <img
               className="block h-[380px] rounded-tl-xl rounded-bl-xl w-full"
@@ -67,7 +70,7 @@ const CourseDetails = () => {
               alt=""
             />
           </div>
-          <div  className="p-7  w-full">
+          <div ref={ref} className="p-7  w-full">
             <h2 className="text-xl font-semibold">{subject.name}</h2>
             <div>
               {" "}
