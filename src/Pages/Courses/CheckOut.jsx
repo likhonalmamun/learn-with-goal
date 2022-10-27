@@ -19,9 +19,9 @@ const CheckOut = () => {
   return (
     <div
       style={!theme ? { backgroundColor: "rgba(0, 0, 0, 0.675)" } : undefined}
-      className="hero rounded-xl w-[80%] mx-auto bg-base-300"
+      className="hero rounded-xl md:w-[80%] mx-auto bg-base-300"
     >
-      <div className="hero-content w-[75%] flex-col lg:flex-row-reverse">
+      <div className="hero-content md:w-[75%] flex-col lg:flex-row-reverse">
         <div className="card my-5 flex-shrink-0 w-full  shadow-2xl bg-base-100">
           <div
             style={
@@ -29,7 +29,7 @@ const CheckOut = () => {
                 ? { backgroundColor: "rgb(0, 0, 0", color: "white" }
                 : undefined
             }
-            className="card-body "
+            className="card-body pricing"
           >
             <h1 className="text-center text-3xl font-semibold text-red-400">
               {subject?.name} Course
@@ -42,7 +42,7 @@ const CheckOut = () => {
                 </span>
                 tk
               </h1>
-              <div className="border text-lg font-semibold border-red-500 p-4 rounded-xl mt-3">
+              <div className="border sm:text-lg font-semibold border-red-500 p-4 rounded-xl mt-3">
                 <h1 className="text-2xl">In this course</h1>
                 <p className="mt-1">
                   {" "}
