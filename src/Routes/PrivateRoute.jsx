@@ -8,7 +8,11 @@ const PrivateRoute = ({ children }) => {
   console.log(user, loading);
   const location = useLocation();
   if (loading) {
-    return <div className=" home  h-[400px] text-white p-11 text-center text-5xl"> Loading...Please wait .</div>;
+    return (
+      <div className=" home  h-[200px] text-white p-11 text-center text-5xl">
+        Loading...Please wait .
+      </div>
+    );
   } else if (user === null) {
     return <Navigate to="/login" state={{ from: location }} replace />;
   } else {

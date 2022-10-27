@@ -6,7 +6,7 @@ const CourseCard = ({ subject }) => {
   return (
     <div className="card  w-full shadow-xl image-full">
       <figure>
-        <img className="opacity-100" src={subject.img} alt="Subject" />
+        <img  className="opacity-100 " src={subject.img} alt="Subject" />
       </figure>
       <div className="card-body  opacity-100">
         <h2 className="card-title text-white text-lg  md:text-2xl">

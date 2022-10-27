@@ -9,6 +9,7 @@ const Register = () => {
   const { logInWithGoogle, logInWithGitHub, registerWithPass } =
     useContext(AuthContext);
   const [error, setError] = useState("");
+  const [info, setInfo] = useState("");
   const register = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -17,12 +18,13 @@ const Register = () => {
     const photoURL = e.target.photoURL.value;
     registerWithPass(email, password)
       .then((res) => {
+        setError("");
+        setInfo("Registered Successfully");
         updateProfile(res.user, { displayName: name, photoURL: photoURL }).then(
           () => {}
         );
       })
       .catch((e) => setError(e.message));
-    // console.log(name, email, password, photoURL);
   };
   const { theme } = useContext(ThemeContext);
   return (
@@ -36,7 +38,9 @@ const Register = () => {
     >
       <div className="hero-content p-0 w-[95%] md:w-[80%] lg:w-[70%] xl:w-[50%] flex-col lg:flex-row">
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl text-red-600 font-bold">Register Now</h1>
+          <h1 className="text-3xl sm:text-5xl text-red-600 font-bold">
+            Register Now
+          </h1>
           <p className="py-6">
             Register to "Learn With Goal" for buying our course . Be the member
             of dedicated students group . We are always active to help you to
@@ -126,6 +130,7 @@ const Register = () => {
               />
             </div>
             <p className="text-red-500 font-semibold ml-1">{error}</p>
+            <p className="text-green-500 font-semibold ml-1">{info}</p>
             <p className="text-sm mt-4">
               Already have an account ?
               <Link
@@ -144,11 +149,25 @@ const Register = () => {
                 <p>Continue With :</p>
                 <p className="text-center mt-3">
                   <FaGoogle
-                    onClick={() => logInWithGoogle().then((result) => {})}
+                    onClick={() =>
+                      logInWithGoogle()
+                        .then((res) => {
+                          setError("");
+                          setInfo("Registered Successfully");
+                        })
+                        .catch((e) => setError(e.message))
+                    }
                     className="inline text-3xl mx-7 hover:text-black text-red-600"
                   ></FaGoogle>
                   <FaGithub
-                    onClick={() => logInWithGitHub().then((res) => {})}
+                    onClick={() =>
+                      logInWithGitHub()
+                        .then((res) => {
+                          setError("");
+                          setInfo("Registered Successfully");
+                        })
+                        .catch((e) => setError(e.message))
+                    }
                     className="inline text-3xl mx-7 hover:text-black text-red-600"
                   ></FaGithub>
                 </p>

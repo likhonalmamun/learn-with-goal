@@ -13,6 +13,8 @@ const CourseDetails = () => {
       style={!theme ? { backgroundColor: "rgba(0, 0, 0, 0.675)" } : undefined}
       className="home"
     >
+
+      {/* the pdf downloader button  */}
       <Pdf targetRef={ref} filename="code-example.pdf">
         {({ toPdf }) => (
           <button
@@ -25,7 +27,7 @@ const CourseDetails = () => {
       </Pdf>
       <div className=" mb-11">
         <div
-          className="hero  h-[400px]"
+          className="hero sm:h-[400px]"
           style={{
             backgroundImage: `url("https://live.staticflickr.com/1873/30723091118_44fe5a9b08_b.jpg")`,
           }}
@@ -33,11 +35,11 @@ const CourseDetails = () => {
           <div className="hero-overlay bg-opacity-50"></div>
           <div className="hero-content text-center text-neutral-content">
             <div>
-              <h1 className="mb-5  text-5xl font-bold">
+              <h1 className="mb-5  text-3xl  md:text-5xl font-bold">
                 This is a 5 months crash course on{" "}
                 <span className="text-red-500 font-bold">{subject.name}</span> .
               </h1>
-              <p className="mb-5 italic text-2xl">
+              <p className="mb-5 italic text-lg lg:text-2xl">
                 We are mainly focused on admission test of best collages of bd .
                 In next 5 months (1st Nov to ending of March) , we will cover
                 all important topics of {subject.name} text book . Regular test
@@ -61,15 +63,17 @@ const CourseDetails = () => {
               ? { backgroundColor: "rgb(0, 0, 0", color: "white" }
               : undefined
           }
-          className="grid gap-6 mt-10 bg-base-100 rounded-xl grid-cols-[3fr,2fr]"
+          className="grid  xl:gap-6 mt-10 bg-base-100 rounded-xl xl:grid-cols-[3fr,2fr]"
         >
-          <div>
+          <div className="sm:m-9 lg:m-0">
             <img
-              className="block h-[380px] rounded-tl-xl rounded-bl-xl w-full"
+              className=" block h-[250px] xl:h-[380px] rounded-xl xl:rounded-tr-none xl:rounded-br-none w-full"
               src={subject.headerImg}
               alt=""
             />
           </div>
+
+          {/* the pdf will contain this section below */}
           <div ref={ref} className="p-7  w-full">
             <h2 className="text-xl font-semibold">{subject.name}</h2>
             <div>

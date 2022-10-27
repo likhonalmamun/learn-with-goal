@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../ContextProvider";
 import { ThemeContext } from "../../ThemeProvider";
-import { FaBars, FaXbox } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 import { HiOutlineX } from "react-icons/hi";
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -27,33 +27,28 @@ const Header = () => {
 
       <div
         className={`text-xl duration-300 md:static fixed font-semibold  text-white ${
-          open ? "top-[80px] flex flex-wrap justify-end mr-4 z-10 gap-4  bg-black left-[0px] w-full" : "top-[-200px]"
+          open
+            ? "top-[80px] flex flex-wrap justify-end mr-4 z-10 gap-4  bg-black left-[0px] w-full"
+            : "top-[-200px]"
         }`}
       >
-        <NavLink
-          className={`mr-4 hover:text-red-600 duration-300 ${({ isActive }) =>
-            isActive ? "activeLink" : ""}`}
-          to="/"
-        >
+        <NavLink className="mr-4 hover:text-red-600 duration-300" to="/">
           Courses
         </NavLink>
-        <NavLink
-          className={`mr-4 hover:text-red-600 duration-300 ${({ isActive }) =>
-            isActive ? "text-red-500" : "text-nothing"}`}
-          to="/blog"
-        >
+        <NavLink className="mr-4 hover:text-red-600 duration-300" to="/blog">
           Blog
         </NavLink>
-        <NavLink
-          className={`mr-4 hover:text-red-600 duration-300 ${({ isActive }) =>
-            isActive ? "activeLink" : ""}`}
-          to="/FAQ"
-        >
+        <NavLink className="mr-4 hover:text-red-600 duration-300" to="/FAQ">
           FAQ
         </NavLink>
         {user?.uid ? (
           <>
-            <button onClick={logOut}>Log Out</button>
+            <button
+              className="rounded-full bg-red-500 hover:bg-red-700 text-sm px-2 py-1"
+              onClick={logOut}
+            >
+              Log Out
+            </button>
             <img
               title={user?.displayName ? user.displayName : "User"}
               className="h-14 mx-2 rounded-full"
@@ -66,7 +61,10 @@ const Header = () => {
             />
           </>
         ) : (
-          <NavLink className="mr-4 hover:text-red-600 duration-300" to="/login">
+          <NavLink
+            className="mr-4 rounded-full bg-red-500 hover:bg-red-700 text-md px-3 py-1"
+            to="/login"
+          >
             Login
           </NavLink>
         )}

@@ -1,14 +1,11 @@
 import React from "react";
 import { useContext } from "react";
-
 import { useLoaderData } from "react-router-dom";
 import { ThemeContext } from "../../ThemeProvider";
 import CourseCard from "./CourseCard";
-
 const Home = () => {
   const courses = useLoaderData();
   const allSubjects = JSON.parse(courses);
-  // console.log(courses)
   const { theme } = useContext(ThemeContext);
   return (
     <div
@@ -16,21 +13,20 @@ const Home = () => {
       className="home"
     >
       <div
-        className="hero  h-[400px]"
+        className="hero  sm:h-[400px]"
         style={{
           backgroundImage: `url("https://upload.wikimedia.org/wikipedia/commons/1/11/Inner_Campus_of_ACC.jpg")`,
         }}
       >
-        {/* https://engineersdiarybd.com/wp-content/uploads/2020/06/IMG_6300.jpg */}
         <div className="hero-overlay bg-opacity-50"></div>
         <div className="hero-content text-center text-neutral-content">
           <div>
-            <h1 className="mb-5 text-3xl  md:text-5xl font-bold">
+            <h1 className="mb-5 text-2xl sm:text-3xl  md:text-5xl font-bold">
               Welcome to "<span className="text-red-600">L</span>EARN
               <span className="text-red-600">W</span>ITH
               <span className="text-red-600">G</span>OAL" .
             </h1>
-            <p className="mb-5 italic text-lg lg:text-2xl">
+            <p className="mb-5 italic text-md md:text-lg lg:text-2xl">
               If you are a student of SSC-2022 and you have set your goal to get
               admitted to{" "}
               <span className="text-red-500 font-bold">Notre Dame</span>/

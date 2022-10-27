@@ -11,13 +11,15 @@ const Login = () => {
   const { logInWithGoogle, logInWithPass, logInWithGitHub } =
     useContext(AuthContext);
   const [error, setError] = useState("");
+  const [info, setInfo] = useState("");
   const logIn = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     logInWithPass(email, password)
       .then((res) => {
-        console.log(res.user);
+        setError("");
+        setInfo("Logged in successfully");
         navigate(from);
       })
       .catch((e) => setError(e.message));
@@ -34,7 +36,7 @@ const Login = () => {
     >
       <div className="hero-content p-0 w-[95%] md:w-[80%] lg:w-[70%] xl:w-[50%] flex-col lg:flex-row">
         <div className="text-center lg:text-left">
-          <h1 className="text-4xl sm:text-5xl text-red-600 font-bold">
+          <h1 className="text-3xl sm:text-5xl text-red-600 font-bold">
             Login now!
           </h1>
           <p className="py-6">
@@ -86,6 +88,7 @@ const Login = () => {
                 }`}
               />
               <p className="text-red-500 font-semibold ml-1">{error}</p>
+              <p className="text-green-500 font-semibold ml-1">{info}</p>
               <p className="text-sm mt-4">
                 New to "Learn With Goal" ?{" "}
                 <Link
@@ -106,17 +109,25 @@ const Login = () => {
                 <p className="text-center mt-3">
                   <FaGoogle
                     onClick={() =>
-                      logInWithGoogle().then((result) => {
-                        navigate(from);
-                      })
+                      logInWithGoogle()
+                        .then((result) => {
+                          setError("");
+                          setInfo("Logged in successfully");
+                          navigate(from);
+                        })
+                        .catch((e) => setError(e.message))
                     }
                     className="inline text-3xl mx-7 hover:text-black text-red-600"
                   ></FaGoogle>
                   <FaGithub
                     onClick={() =>
-                      logInWithGitHub().then((res) => {
-                        navigate(from);
-                      })
+                      logInWithGitHub()
+                        .then((res) => {
+                          setError("");
+                          setInfo("Logged in successfully");
+                          navigate(from);
+                        })
+                        .catch((e) => setError(e.message))
                     }
                     className="inline text-3xl mx-7 hover:text-black text-red-600"
                   ></FaGithub>

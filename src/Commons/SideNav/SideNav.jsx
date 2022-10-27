@@ -14,21 +14,26 @@ const SideNav = () => {
   }, []);
   const { theme } = useContext(ThemeContext);
   return (
-    <div className="hidden lg:block">
+    <div className=" text-black ">
       <h3>
         <ul
-          style={!theme ? { backgroundColor: "black",color : 'white' } : undefined}
-          className="menu rounded-box bg-base-300 p-5 text-xl font-semibold "
+          style={
+            !theme ? { backgroundColor: "black", color: "white" } : undefined
+          }
+          className="menu rounded-box bg-base-300 p-5 text-xl gap-1  lg:block flex flex-row flex-wrap font-semibold "
         >
           <li>
-            <Link className="focus:bg-red-500 duration-300" to="/">
+            <Link
+              className="focus:bg-red-500 lg:border-none border border-black  duration-300"
+              to="/"
+            >
               Overview
             </Link>{" "}
           </li>
           {allSubjects.map((subject) => (
             <li key={subject.id}>
               <Link
-                className="focus:bg-red-500 duration-300"
+                className="focus:bg-red-500 lg:border-none border border-black duration-300"
                 to={`/subject/${subject.id}`}
               >
                 {subject.name}

@@ -1,14 +1,10 @@
-.App {
-  /* text-align: center; */
-}
-.activeLink{
-  color: red;
-}
 .home {
   background: rgba(201, 201, 201, 0.712);
   padding: 35px;
   border-radius: 18px;
 }
+
+/* adding background image for full screen  */
 .main::before {
   content: "";
   height: 100vh;
@@ -53,5 +49,14 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+/* media query for extra small devices  */
+@media screen and (min-width: 279px) and (max-width: 411px) {
+  .home {
+    padding: 5px;
+  }
+  .layout {
+    padding: 3px;
   }
 }

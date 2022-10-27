@@ -17,6 +17,9 @@ const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 export const AuthContext = createContext();
 const auth = getAuth(app);
+
+
+// auth context provider functional component srarts here 
 const ContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);

@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { useContext } from "react";
 import { useEffect } from "react";
 import { FaCheckSquare } from "react-icons/fa";
-
 import { useLocation } from "react-router-dom";
 import { ThemeContext } from "../../ThemeProvider";
-
 const CheckOut = () => {
+  // as this route is wrapped by the private route
   const location = useLocation();
   const path = location.pathname;
   const [subject, setSubject] = useState({});
+  // got the subject id through the path for loading data
   useEffect(() => {
     fetch(`https://assignment-10-server-pi.vercel.app${path}`)
       .then((res) => res.json())
